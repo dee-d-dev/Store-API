@@ -5,6 +5,7 @@ const connectDB = require("./db/connect");
 const notFound = require("./middlewares/not-found");
 const errorHandlerMW = require("./middlewares/errorHandlerMiddleware");
 const products = require("./routes/products");
+require("express-async-errors");
 
 app.use(express.json());
 
@@ -19,8 +20,8 @@ app.get("/", (req, res) => {
 app.use("/api/v1/products", products);
 
 //middlewares
-app.use(notFound);
 app.use(errorHandlerMW);
+app.use(notFound);
 
 const PORT = process.env.PORT || 7000;
 
