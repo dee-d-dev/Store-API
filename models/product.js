@@ -22,13 +22,14 @@ const ProductSchema = new mongoose.Schema({
     default: Date.now(),
   },
   company: {
+    type: String,
     enum: {
-      value: ["ROOM XIX", "ASHLUXE", "GUCCI", "LOUIS VUITTON"],
-      message: `{value} is not supported`,
+      values: ["ikea", "liddy", "caressa", "marcos"],
+      message: "value is not supported",
     },
   },
 });
 
-const ProductModel = ("Product", ProductSchema);
+const ProductModel = mongoose.model("Product", ProductSchema);
 
 module.exports = ProductModel;

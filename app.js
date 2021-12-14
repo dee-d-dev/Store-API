@@ -19,6 +19,7 @@ app.get("/", (req, res) => {
 //routes
 app.use("/api/v1/products", products);
 
+
 //middlewares
 app.use(errorHandlerMW);
 app.use(notFound);
